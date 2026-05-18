@@ -16,7 +16,14 @@ df = df.select_dtypes(include=["number"])
 df = df.fillna(df.median())
 
 # 4. Features and target
-X = df.drop("SalePrice", axis=1)
+X = df[[
+    "OverallQual",
+    "GrLivArea",
+    "GarageCars",
+    "TotalBsmtSF",
+    "FullBath"
+]]
+
 y = df["SalePrice"]
 
 # 5. Split dataset
